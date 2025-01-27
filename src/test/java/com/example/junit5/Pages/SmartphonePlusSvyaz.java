@@ -78,9 +78,12 @@ public class SmartphonePlusSvyaz {
    // public static SelenideElement SmartaOfferTitle = $(By.xpath("(*//div[contains(text(),'Smarta')])[2]"));
 
 //    public static SelenideElement SmartaOfferInclude = $(By.xpath("*//div[contains(text(),'Смартфон + Связь')]"));
-//    public static SelenideElement SmartaOfferPrice = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemTitle__piZo4'])[1]"));
+//    public static SelenideElement SmartaOfferPrice = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[1]"));
+//    public static SelenideElement SmartaofferPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[1]//span[contains(text(), '₽ в мес.')]"));
 //    public static SelenideElement SmartaofferGb = $(By.xpath("XPATH"));
+//    public static SelenideElement SmartaofferGbPerMonth = $(By.xpath("XPATH"));
 //    public static SelenideElement SmartaOfferMin = $(By.xpath("XPATH"));
+//    public static SelenideElement SmartaOfferMinPerMonth = $(By.xpath("XPATH"));
 //    // Включено в комплект
 //    public static SelenideElement SmartaOffer = $(By.xpath("XPATH"));
 //    public static SelenideElement SmartaOfferSmartphone = $(By.xpath("XPATH"));
