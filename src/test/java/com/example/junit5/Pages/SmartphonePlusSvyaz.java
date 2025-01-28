@@ -78,13 +78,13 @@ public class SmartphonePlusSvyaz {
     // Оффер Смарта
     public static SelenideElement SmartaOfferTitle = $(By.xpath("(*//div[contains(text(),'Smarta')])[2]"));
     public static SelenideElement SmartaOfferInclude = $(By.xpath("*//div[contains(text(),'Смартфон + Связь')]"));
-    public static SelenideElement SmartaOfferPrice = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[1]"));
-    public static SelenideElement SmartaOfferPricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[1]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement SmartaOfferGb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[2]"));
-    public static SelenideElement SmartaOfferGbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[2]//span[contains(text(), 'гб в мес.')]"));
+    public static SelenideElement SmartaOfferPrice = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__ClFsm'])[1]"));
+    public static SelenideElement SmartaOfferPricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__ClFsm'])[1]//span[contains(text(), '₽ в мес.')]"));
+    public static SelenideElement SmartaOfferGb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__ClFsm'])[2]"));
+    public static SelenideElement SmartaOfferGbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__ClFsm'])[2]//span[contains(text(), 'гб в мес.')]"));
     // Плохой селектор на минуты: написан по полному имени класса !!!!!! надо бы его переделать
-    public static SelenideElement SmartaOfferMin = $(By.xpath("*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6 samsung-galaxy-a06_tableItemFeatureMarginBottomColor__DWIvs']"));
-    public static SelenideElement SmartaOfferMinPerMonth = $(By.xpath("*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6 samsung-galaxy-a06_tableItemFeatureMarginBottomColor__DWIvs']//span[contains(text(), 'минут в мес.')]"));
+    public static SelenideElement SmartaOfferMin = $(By.xpath("(*//div[contains(text(), '350')])[2]"));
+    public static SelenideElement SmartaOfferMinPerMonth = $(By.xpath("(*//div[contains(text(), '350')])[2]//span[contains(text(), 'минут в мес.')]"));
     // Включено в комплект
     public static SelenideElement SmartaOfferIncludeTitle = $(By.xpath("*//div[contains(text(), 'Включено в комплект')]"));
     public static SelenideElement SmartaOfferIncludeSmartphone = $(By.xpath("*//div[contains(text(), 'Смартфон Samsung Galaxy A06')]"));
@@ -94,45 +94,45 @@ public class SmartphonePlusSvyaz {
 
 // Оператор 1
     public static SelenideElement Offer1Title = $(By.xpath("*//div[contains(text(), 'Оператор 1')]"));
-    public static SelenideElement Offer1Price = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[3]"));
-    public static SelenideElement Offer1PricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[3]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer1Gb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[4]"));
-    public static SelenideElement Offer1GbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[4]//span[contains(text(), 'гб')]"));
-    public static SelenideElement Offer1Min = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[1]"));
-    public static SelenideElement Offer1MinPerMonth = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[1]//span[contains(text(), 'минут')]"));
+    public static SelenideElement Offer1Price = $(By.xpath("(*//div[contains(text(), '800')])[1]"));
+    public static SelenideElement Offer1PricePerMonth = $(By.xpath("(*//div[contains(text(), '800')])[1]//span[contains(text(), '₽ в мес.')]"));
+    public static SelenideElement Offer1Gb = $(By.xpath("(*//div[contains(text(), '20')])[1]"));
+    public static SelenideElement Offer1GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[1]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer1Min = $(By.xpath("(*//div[contains(text(), '400')])[1]"));
+    public static SelenideElement Offer1MinPerMonth = $(By.xpath("(*//div[contains(text(), '400')])[1]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer1NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[1]"));
     public static SelenideElement Offer1NotIncludeInsurance = $(By.xpath("(*//div[contains(text(), 'без защиты')])[1]"));
 
 // Оператор 2
     public static SelenideElement Offer2Title = $(By.xpath("*//div[contains(text(), 'Оператор 2')]"));
-    public static SelenideElement Offer2Price = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[5]"));
-    public static SelenideElement Offer2PricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[5]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer2Gb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[6]"));
-    public static SelenideElement Offer2GbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[6]//span[contains(text(), 'гб')]"));
-    public static SelenideElement Offer2Min = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[2]"));
-    public static SelenideElement Offer2MinPerMonth = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[2]//span[contains(text(), 'минут')]"));
+    public static SelenideElement Offer2Price = $(By.xpath("(*//div[contains(text(), '780')])[1]"));
+    public static SelenideElement Offer2PricePerMonth = $(By.xpath("(*//div[contains(text(), '780')])[1]//span[contains(text(), '₽ в мес.')]"));
+    public static SelenideElement Offer2Gb = $(By.xpath("(*//div[contains(text(), '25')])[1]"));
+    public static SelenideElement Offer2GbPerMonth = $(By.xpath("(*//div[contains(text(), '25')])[1]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer2Min = $(By.xpath("(*//div[contains(text(), '250')])[1]"));
+    public static SelenideElement Offer2MinPerMonth = $(By.xpath("(*//div[contains(text(), '250')])[1]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer2NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[2]"));
     public static SelenideElement Offer2NotIncludeInsurance = $(By.xpath("(*//div[contains(text(), 'без защиты')])[2]"));
 
     // Оператор 3
     public static SelenideElement Offer3Title = $(By.xpath("*//div[contains(text(), 'Оператор 3')]"));
-    public static SelenideElement Offer3Price = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[7]"));
-    public static SelenideElement Offer3PricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[7]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer3Gb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[8]"));
-    public static SelenideElement Offer3GbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[8]//span[contains(text(), 'гб')]"));
-    public static SelenideElement Offer3Min = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[3]"));
-    public static SelenideElement Offer3MinPerMonth = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[3]//span[contains(text(), 'минут')]"));
+    public static SelenideElement Offer3Price = $(By.xpath("(*//div[contains(text(), '750')])[1]"));
+    public static SelenideElement Offer3PricePerMonth = $(By.xpath("(*//div[contains(text(), '750')])[1]//span[contains(text(), '₽ в мес.')]"));
+    public static SelenideElement Offer3Gb = $(By.xpath("(*//div[contains(text(), '20')])[2]"));
+    public static SelenideElement Offer3GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[2]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer3Min = $(By.xpath("(*//div[contains(text(), '400')])[2]"));
+    public static SelenideElement Offer3MinPerMonth = $(By.xpath("(*//div[contains(text(), '400')])[2]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer3NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[3]"));
     public static SelenideElement Offer3NotIncludeInsurance = $(By.xpath("(*//div[contains(text(), 'без защиты')])[3]"));
 
     // Оператор 4
     public static SelenideElement Offer4Title = $(By.xpath("*//div[contains(text(), 'Оператор 4')]"));
-    public static SelenideElement Offer4Price = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[9]"));
-    public static SelenideElement Offer4PricePerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[9]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer4Gb = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[10]"));
-    public static SelenideElement Offer4GbPerMonth = $(By.xpath("(*//div[@class='samsung-galaxy-a06_tableItemFeature__vbA_C'])[10]//span[contains(text(), 'гб')]"));
-    public static SelenideElement Offer4Min = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[4]"));
-    public static SelenideElement Offer4MinPerMonth = $(By.xpath("(*//div[@class = 'samsung-galaxy-a06_tableItemFeature__vbA_C samsung-galaxy-a06_tableItemFeatureMarginBottom__hhdb6'])[4]//span[contains(text(), 'минут')]"));
+    public static SelenideElement Offer4Price = $(By.xpath("(*//div[contains(text(), '1050')])[1]"));
+    public static SelenideElement Offer4PricePerMonth = $(By.xpath("(*//div[contains(text(), '1050')])[1]//span[contains(text(), '₽ в мес.')]"));
+    public static SelenideElement Offer4Gb = $(By.xpath("(*//div[contains(text(), '35')])[6]"));
+    public static SelenideElement Offer4GbPerMonth = $(By.xpath("(*//div[contains(text(), '35')])[6]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer4Min = $(By.xpath("(*//div[contains(text(), '800')])[2]"));
+    public static SelenideElement Offer4MinPerMonth = $(By.xpath("(*//div[contains(text(), '800')])[2]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer4NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[4]"));
     public static SelenideElement Offer4NotIncludeInsurance = $(By.xpath("(*//div[contains(text(), 'без защиты')])[4]"));
     // доделать селекторы кц
@@ -148,13 +148,13 @@ public class SmartphonePlusSvyaz {
     // Блок в конце договора
     public static SelenideElement TitleOptions = $(By.xpath("*//div[contains(text(), 'В конце срока договора')]"));
 
-    public static SelenideElement TitleToday = $(By.xpath("*//div[@class='samsung-galaxy-a06_title__hYX1R'][contains(text(), 'Сегодня')]"));
-    public static SelenideElement SubTitleToday = $(By.xpath("*//div[@class='samsung-galaxy-a06_text___5KU4'][contains(text(), 'Оформляйте договор')]"));
+    public static SelenideElement TitleToday = $(By.xpath("*//div[contains(text(), 'Сегодня')]"));
+    public static SelenideElement SubTitleToday = $(By.xpath("*//div[contains(text(), 'Оформляйте договор')]"));
     // !!!!!!Указано конкретное кол-во месяцев: 36!!!!!!!
-    public static SelenideElement TitleLater = $(By.xpath("*//div[@class='samsung-galaxy-a06_title__hYX1R'][contains(text(), '36 месяцев')]"));
+    public static SelenideElement TitleLater = $(By.xpath("*//div[contains(text(), '36 месяцев')]"));
     public static SelenideElement SubTitleLater = $(By.xpath("*//div[@class='samsung-galaxy-a06_text___5KU4'][contains(text(), 'Пользуйтесь смартфоном и мобильной связью')]"));
-    public static SelenideElement TitleAtTheEnd = $(By.xpath("*//div[@class='samsung-galaxy-a06_title__hYX1R'][contains(text(), 'В конце срока')]"));
-    public static SelenideElement SubTitleAtTheEnd = $(By.xpath("*//div[@class='samsung-galaxy-a06_text___5KU4'][contains(text(), 'Обменяйте смартфон на новый или оставьте себе')]"));
+    public static SelenideElement TitleAtTheEnd = $(By.xpath("(*//div[contains(text(), 'В конце срока')])[2]"));
+    public static SelenideElement SubTitleAtTheEnd = $(By.xpath("(*//div[contains(text(), 'Обменяйте смартфон на новый или оставьте себе')])"));
     public static SelenideElement TextOptions = $(By.xpath("*//div[contains(text(), 'Можно ли закрыть договор досрочно')]"));
 
 
