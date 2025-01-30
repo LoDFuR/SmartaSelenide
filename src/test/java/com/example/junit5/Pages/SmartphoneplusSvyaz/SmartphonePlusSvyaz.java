@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 /*
     Шаблон для селектора XPATH
     public static SelenideElement ElementName = $(By.xpath("XPATH"));
@@ -168,6 +170,7 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement ButtonAccessories = $(By.xpath("*//button[@type='submit']"));
     public static SelenideElement TextAccessories = $(By.xpath("*//span[contains(text(),'Добавьте аксессуаров на сумму')]"));
     public static SelenideElement AccessoriesPrice = $(By.xpath("*//span[@class='priceTitle']/b"));
+   public static ElementsCollection Accessories = $$(By.xpath("(*//button[contains(text(), 'Добавить')])"));
     ////div[contains(text(),'в комплекте с мобильной связью')]
     //public static SelenideElement ElementName = $(By.xpath("XPATH"));
     //(*//img[@alt = 'samsung-galaxy-a06'])[1]

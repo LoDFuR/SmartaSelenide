@@ -67,17 +67,25 @@ public class SmartphonePlusSvyazTest {
         assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
         int i = 0;
         SelenideElement clickingButton;
+        SelenideElement clickingNumber;
+        String PhoneNumber = "";
+        // getting accessories
         while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
-            clickingButton = $$(By.xpath("(*//button[contains(text(), 'Добавить')])")).get(i);
+            clickingButton = SmartphonePlusSvyaz.Accessories.get(i);
             clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
-            //i++;
+            // Надпись Добавлено изменяется после клика
             sleep(500);
         }
         SmartphonePlusSvyaz.ButtonAccessories.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
         sleep(5000);
-        ElementsCollection numb = PupUpChooseYourNumber.Numbers;
+        // offer
+        ElementsCollection numb = PupUpChooseYourNumber.NumbersButtons;
         numb.get(1).shouldBe(Condition.visible, Duration.ofSeconds(30));
+        // Проверяем 1-ый, а кликаем 2 по порядку номер
         numb.get(2).click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        clickingNumber = PupUpChooseYourNumber.NumbersStrings.get(2);
+        // Записываем в переменную номер
+        PhoneNumber = clickingNumber.getText();
         assertTrue(PupUpChooseYourNumber.ButtonContinue.is(Condition.enabled, Duration.ofSeconds(5)));
 //        sleep(5000);
         PupUpChooseYourNumber.ButtonContinue.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
@@ -87,6 +95,7 @@ public class SmartphonePlusSvyazTest {
         sleep(2000);
         System.out.println("MyGeneratedLink:");
         System.out.println(getWebDriver().getCurrentUrl());
+        System.out.println("Choosed Phone Number: " + PhoneNumber);
     }
 
 
