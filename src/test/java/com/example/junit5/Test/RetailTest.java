@@ -7,6 +7,7 @@ import com.browserup.harreader.model.HarEntry;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.proxy.SelenideProxyServer;
+import com.codeborne.selenide.webdriver.ChromeDriverFactory;
 import com.example.junit5.Pages.Catalog;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -24,15 +25,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v131.network.Network;
+import org.openqa.selenium.devtools.v131.network.model.Request;
+import org.openqa.selenium.devtools.v132.indexeddb.IndexedDB;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.driver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -128,13 +136,23 @@ public class RetailTest {
 
         String number = "980-750-68-24";
         Retail.InputNumber.setValue(number);
+        //driver = new ChromeDriver(options);
+//        driver()
+//        ChromeDriverFactory
+//        DevTools devTools = driver();
+//        devTools.createSession(getWebDriver().getWindowHandle());
+//        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
         Retail.ButtonGetSMS.click(ClickOptions.withTimeout(Duration.ofSeconds(3)));
         sleep(2000);
+       // DevTools devTools = ;
         sleep(2000);
+
+
         /*
         REST ASSURE POST method
             /api/v1/user/registration/send-code
          */
+        /*
         RestAssured.baseURI = "https://dev.smarta.lc";
         // Данные для отправки
         // PhoneNumber = "+79807506824"
@@ -218,5 +236,7 @@ public class RetailTest {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+
+         */
     }
 }

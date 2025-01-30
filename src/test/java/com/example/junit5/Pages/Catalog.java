@@ -9,6 +9,7 @@ public class Catalog {
     public static String main = "https://dev.smarta.lc/catalog/smartphones/";
     //Rename
     public static SelenideElement PhoneLink = $(By.xpath("*//a[@href=\"/product/6224/Xiaomi_Redmi_Note_13_Pro_5G_12_512_\"]"));
+    public static SelenideElement LastLinkOnCatalogPhoneLink = $(By.xpath("*//a[@href=\"/product/5832/Infinix_HOT_40i_8_256_\"]"));
     public static SelenideElement ProgrammOptionsButton = $(By.xpath("*//button[contains(text(),'Выбрать условия покупки')]"));
     public static SelenideElement FirstProgrammButton = $(By.xpath("(*//button[contains(text(),'Выбрать')])[1]"));
     public static SelenideElement SecondProgrammButton = $(By.xpath("(*//button[contains(text(),'Выбрать')])[2]"));

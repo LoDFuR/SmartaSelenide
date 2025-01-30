@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class toApplicantTest {
 
@@ -33,7 +33,7 @@ public class toApplicantTest {
         sleep(3000);
         Catalog.NoAccsButton.click();
         sleep(3000);
-        Catalog.NoAppsButton.isDisplayed();
+        assertTrue(Catalog.NoAppsButton.isDisplayed());
         Catalog.NoAppsButton.click();
         sleep(3000);
         sleep(500);
@@ -81,7 +81,7 @@ public class toApplicantTest {
 //        Catalog.NoAppsButton.scrollIntoView(true);
         Catalog.NoAccsButton.click();
         sleep(2000);
-        Catalog.NoAppsButton.isDisplayed();
+        assertTrue(Catalog.NoAppsButton.isDisplayed());
         Catalog.NoAppsButton.click();
         sleep(2000);
      //   Catalog.OrderButton.scrollIntoView(false);
@@ -104,7 +104,7 @@ public class toApplicantTest {
         // Если нужно аннулировать заявку
         if (Catalog.DeclineOrderButton.exists()) {
             sleep(500);
-            Catalog.DeclineOrderButton.click();
+            Catalog.DeclineOrderButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
             sleep(1000);
             Catalog.ApproveButton.click();
             sleep(2000);
@@ -116,6 +116,7 @@ public class toApplicantTest {
 //        sleep(1500);
 //        Catalog.NextStepCyberityButton.click();
 //        sleep(3000);
+        getWebDriver().close();
     }
 
 
