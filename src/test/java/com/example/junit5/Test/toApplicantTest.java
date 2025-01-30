@@ -52,11 +52,15 @@ public class toApplicantTest {
         sleep(250);
         Catalog.AuthorizationPin4.setValue("1");
         sleep(2000);
+        //closing the webdirver
+
+        getWebDriver().close();
     }
 
     @Test
     public void toCyberityTest(){
         open(Catalog.main);
+        getWebDriver().manage().window().maximize();
         sleep(2000);
         // Выбираем товар
         Catalog.PhoneLink.scrollIntoView(false);
