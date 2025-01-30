@@ -71,7 +71,7 @@ public class SmartphonePlusSvyazTest {
         String PhoneNumber = "";
         // getting accessories
         while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
-            clickingButton = SmartphonePlusSvyaz.Accessories.get(i);
+            clickingButton = SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i);
             clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
             // Надпись Добавлено изменяется после клика
             sleep(500);

@@ -170,7 +170,15 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement ButtonAccessories = $(By.xpath("*//button[@type='submit']"));
     public static SelenideElement TextAccessories = $(By.xpath("*//span[contains(text(),'Добавьте аксессуаров на сумму')]"));
     public static SelenideElement AccessoriesPrice = $(By.xpath("*//span[@class='priceTitle']/b"));
-   public static ElementsCollection Accessories = $$(By.xpath("(*//button[contains(text(), 'Добавить')])"));
+   public static ElementsCollection AccessoriesButtonsAdd = $$(By.xpath("(*//button[contains(text(), 'Добавить')])"));
+   public static ElementsCollection AccessoriesPrices = $$(By.xpath("*//h3[@class=\"price\"]"));
+   public static ElementsCollection AccessoriesDescriptions = $$(By.xpath("*//div[@class=\"value\"]"));
+   public static ElementsCollection AccessoriesCharacteristics = $$(By.xpath("*//span[@class=\"link\"]"));
+   public static SelenideElement prevAccessoryButton = $(By.xpath("*//div[@class=\"swiper-button-prev\"]"));
+   public static SelenideElement nextAccessoryButton = $(By.xpath("*//div[@class=\"swiper-button-next\"]"));
+   public static ElementsCollection AddedAccessoryLetters = $$(By.xpath("*//span[@class=\"selectedTitle\"]"));
+   public static ElementsCollection RemoveAccessoryButtons = $$(By.xpath("*//button[contains(text(), 'Убрать')]"));
+
     ////div[contains(text(),'в комплекте с мобильной связью')]
     //public static SelenideElement ElementName = $(By.xpath("XPATH"));
     //(*//img[@alt = 'samsung-galaxy-a06'])[1]
