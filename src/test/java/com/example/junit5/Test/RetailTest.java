@@ -1,5 +1,13 @@
 package com.example.junit5.Test;
 //import net.lightbody.bmp.BrowserUpProxy;
+import com.browserup.bup.BrowserUpProxy;
+import com.browserup.bup.BrowserUpProxyServer;
+import com.browserup.bup.proxy.CaptureType;
+import com.browserup.harreader.model.HarEntry;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.proxy.SelenideProxyServer;
+import com.example.junit5.Pages.Catalog;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -9,11 +17,17 @@ import io.restassured.response.Response;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Configuration;
 import com.example.junit5.Pages.Retail;
+import net.lightbody.bmp.BrowserMobProxy;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,8 +35,71 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RetailTest {
+
+    private static SelenideProxyServer proxyServer;
+    public static BrowserUpProxy bmp;
+    @BeforeAll
+    public static void setup() {
+        // Настройка Selenide
+        //Configuration.startMaximized = true;
+        Configuration.browser = "chrome";
+
+        // Настройка прокси-сервера
+        Configuration.proxyEnabled = true;
+//        proxyServer = new BrowserUpProxyServer();
+//        proxyServer.start();
+//        Configuration.proxyHost = "localhost:";
+//        bmp.start();
+        WebDriverRunner.getSelenideProxy().start();
+        bmp = WebDriverRunner.getSelenideProxy().getProxy();
+
+        // запоминать тело запросов (по умолчанию тело не запоминается, ибо может быть большим)
+        bmp.setHarCaptureTypes(CaptureType.getAllContentCaptureTypes());
+
+        // запоминать как запросы, так и ответы
+        bmp.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+
+        // начинай запись!
+        bmp.newHar("Q_Q");
+    }
+    @Test
+    public void testAnalyzeRequests() {
+        // Открытие веб-страницы
+//        open("https://jsonplaceholder.typicode.com/"); // пример URL
+
+        // Выполнение действий на странице
+        // Например, инициирование запроса, если это необходимо
+      //  $("#someButton").click(); // замените селектор на фактический элемент
+        open(Catalog.main);
+        getWebDriver().manage().window().maximize();
+        sleep(2000);
+        // Выбираем товар
+        Catalog.PhoneLink.scrollIntoView(false);
+        sleep(1500);
+
+
+
+
+        List<HarEntry> requests = bmp.getHar().getLog().getEntries();
+        //Selenide.closeWebDriver();
+        // Анализ запросов
+        //List <HarEntry> requests = bmp.getHar().getLog().getEntries();;
+        for (var request : requests) {
+            System.out.println("Request URL: " + request.getRequest().getUrl());
+            System.out.println("Request Method: " + request.getResponse().getContent());
+//            System.out.println("Request Headers: " + request.getHeaders());
+            // Вы можете добавить более сложную логику анализа
+        }
+
+        // Пример проверки, анализируя последний запрос
+//        var lastRequest = requests.get(requests.size() - 1);
+//        assertThat(lastRequest.getUrl(), containsString("expectedPath")); // используйте ваше ожидаемое значение
+    }
+
+
 
 
 /**
@@ -31,7 +108,7 @@ public class RetailTest {
  * */
     @Test
     public void AccessTokenChangingAfterClosingBrowserTest() {
-        String orderID = "8b7250e7-ef1b-47df-819a-877231779781";
+        String orderID = "f6a97991-59e2-4c94-9bb2-24af7ad8447e";
 
         // Добавляем режим инкогнито
         ChromeOptions options = new ChromeOptions();
@@ -108,9 +185,9 @@ public class RetailTest {
 
 
             Retail.InputCode.setValue(cc);
-            sleep(900000);
+            sleep(900);
             Retail.ButtonSubmitCode.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
-            sleep(7000);
+            sleep(700);
 
 
             //Checking cookies

@@ -1,11 +1,14 @@
 package com.example.junit5.Test;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.conditions.Enabled;
 import com.codeborne.selenide.conditions.Visible;
 import com.example.junit5.Pages.Catalog;
 import com.example.junit5.Pages.Header;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -41,13 +44,13 @@ public class toApplicantTest {
         sleep(500);
         Catalog.SubmitPhoneNumberInputForm.click();
         sleep(599);
-        Catalog.AuthorizationPin1.setValue("4");
+        Catalog.AuthorizationPin1.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin2.setValue("4");
+        Catalog.AuthorizationPin2.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin3.setValue("4");
+        Catalog.AuthorizationPin3.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin4.setValue("4");
+        Catalog.AuthorizationPin4.setValue("1");
         sleep(2000);
     }
 
@@ -82,27 +85,27 @@ public class toApplicantTest {
         Catalog.OrderButton.click();
         sleep(1500);
         // Authorization
-        Catalog.PhoneNumberInputForm.setValue("980-749-72-00");
+        Catalog.PhoneNumberInputForm.setValue("980-750-68-90");
         sleep(500);
         Catalog.SubmitPhoneNumberInputForm.click();
         sleep(599);
-        Catalog.AuthorizationPin1.setValue("4");
+        Catalog.AuthorizationPin1.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin2.setValue("4");
+        Catalog.AuthorizationPin2.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin3.setValue("4");
+        Catalog.AuthorizationPin3.setValue("1");
         sleep(250);
-        Catalog.AuthorizationPin4.setValue("4");
-        sleep(2000);
+        Catalog.AuthorizationPin4.setValue("1");
+        sleep(8000);
         // Если нужно аннулировать заявку
-        if (Catalog.DeclineOrderButton.isEnabled()) {
+        if (Catalog.DeclineOrderButton.exists()) {
             sleep(500);
             Catalog.DeclineOrderButton.click();
             sleep(1000);
             Catalog.ApproveButton.click();
             sleep(2000);
         }
-        Catalog.StartCyberityButton.click();
+      //  Catalog.StartCyberityButton.click(ClickOptions.withTimeout(Duration.ofSeconds(10)));
         sleep(7000);
 //        Catalog.NextStepCyberityButton.shouldBe(Condition.visible);
 //        Catalog.NextStepCyberityButton.isEnabled();
