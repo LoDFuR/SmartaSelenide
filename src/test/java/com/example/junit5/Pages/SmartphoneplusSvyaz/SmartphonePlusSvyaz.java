@@ -1,5 +1,6 @@
-package com.example.junit5.Pages;
+package com.example.junit5.Pages.SmartphoneplusSvyaz;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -170,7 +171,6 @@ public class SmartphonePlusSvyaz {
     ////div[contains(text(),'в комплекте с мобильной связью')]
     //public static SelenideElement ElementName = $(By.xpath("XPATH"));
     //(*//img[@alt = 'samsung-galaxy-a06'])[1]
-
 
 
 }
