@@ -172,6 +172,7 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement TextAccessories = $(By.xpath("*//span[contains(text(),'Добавьте аксессуаров на сумму')]"));
     public static SelenideElement AccessoriesPrice = $(By.xpath("*//span[@class='priceTitle']/b"));
    public static ElementsCollection AccessoriesButtonsAdd = $$(By.xpath("(*//button[contains(text(), 'Добавить')])"));
+   public static ElementsCollection AddedAccessories = $$(By.xpath("(*//button[contains(text(), 'Убрать')])"));
    public static ElementsCollection AccessoriesPrices = $$(By.xpath("*//h3[@class=\"price\"]"));
    public static ElementsCollection AccessoriesDescriptions = $$(By.xpath("*//div[@class=\"value\"]"));
    public static ElementsCollection AccessoriesCharacteristics = $$(By.xpath("*//span[@class=\"link\"]"));

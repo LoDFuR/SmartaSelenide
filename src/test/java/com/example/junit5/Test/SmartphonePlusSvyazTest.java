@@ -702,6 +702,39 @@ public class SmartphonePlusSvyazTest {
     }
 
     @Test
+    public void DeletingAccessoryTest(){
+        MaximizeWindow();
+        // final int
+        assertTrue(SmartphonePlusSvyaz.Button.exists());
+        SmartphonePlusSvyaz.Button.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
+                Duration.ofSeconds(3));
+        sleep(2000);
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
+        int minSUM = Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText()
+                .replaceAll("\\D+",""));
+        assertEquals(5500, minSUM);
+
+            minSUM-=Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(0)
+                    .getText()
+                    .replaceAll("\\D+",""));
+            SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(0).click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        assertTrue(SmartphonePlusSvyaz.TextAccessories.isDisplayed(),
+                "MIN SUM text is displayed");
+        assertTrue(SmartphonePlusSvyaz.AccessoriesPrice.isDisplayed(),
+                "MIN SUM Displayed!");
+        SmartphonePlusSvyaz.AddedAccessories.get(0)
+                .click(
+                        ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        assertEquals(5500,
+                Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText()
+                .replaceAll("\\D+","")),
+                "MIN SUM Didn't change");
+    }
+
+    @Test
     public void ApplicationSmartphonePlusSvyaz(){
         open(SmartphonePlusSvyaz.main);
         getWebDriver().manage().window().maximize();
