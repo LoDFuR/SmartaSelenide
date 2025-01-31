@@ -19,7 +19,8 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement Subtitle = $(By.xpath("*//div[contains(text(),'Отличный современный смартфон с двумя SIM-картами')]"));
     public static SelenideElement Button = $(By.xpath("(*//button)[1]"));
     public static SelenideElement Img = $(By.xpath("(*//img[@alt = 'samsung-galaxy-a06'])[1]"));
-
+    public static SelenideElement MayPortaitedText = $(By.xpath("*//span[contains(text(), 'Можно перейти')]"));
+    public static SelenideElement WithYourNumberText = $(By.xpath("*//span[contains(text(), 'со своим номером')]"));
     //Блок Легендарная серия
     public static SelenideElement TitleLegendary = $(By.xpath("*//div[contains(text(),'Легендарная серия')]"));
     public static SelenideElement SubtitleLegendary = $(By.xpath("*//div[contains(text(),'Расширьте свои возможности на большом экране Galaxy A06')]"));
