@@ -100,8 +100,8 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement Offer1Title = $(By.xpath("*//div[contains(text(), 'Оператор 1')]"));
     public static SelenideElement Offer1Price = $(By.xpath("(*//div[contains(text(), '800')])[1]"));
     public static SelenideElement Offer1PricePerMonth = $(By.xpath("(*//div[contains(text(), '800')])[1]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer1Gb = $(By.xpath("(*//div[contains(text(), '20')])[1]"));
-    public static SelenideElement Offer1GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[1]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer1Gb = $(By.xpath("(*//div[contains(text(), '20')])[3]"));
+    public static SelenideElement Offer1GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[3]//span[contains(text(), 'гб')]"));
     public static SelenideElement Offer1Min = $(By.xpath("(*//div[contains(text(), '400')])[1]"));
     public static SelenideElement Offer1MinPerMonth = $(By.xpath("(*//div[contains(text(), '400')])[1]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer1NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[1]"));
@@ -122,8 +122,8 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement Offer3Title = $(By.xpath("*//div[contains(text(), 'Оператор 3')]"));
     public static SelenideElement Offer3Price = $(By.xpath("(*//div[contains(text(), '750')])[1]"));
     public static SelenideElement Offer3PricePerMonth = $(By.xpath("(*//div[contains(text(), '750')])[1]//span[contains(text(), '₽ в мес.')]"));
-    public static SelenideElement Offer3Gb = $(By.xpath("(*//div[contains(text(), '20')])[2]"));
-    public static SelenideElement Offer3GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[2]//span[contains(text(), 'гб')]"));
+    public static SelenideElement Offer3Gb = $(By.xpath("(*//div[contains(text(), '20')])[4]"));
+    public static SelenideElement Offer3GbPerMonth = $(By.xpath("(*//div[contains(text(), '20')])[4]//span[contains(text(), 'гб')]"));
     public static SelenideElement Offer3Min = $(By.xpath("(*//div[contains(text(), '400')])[2]"));
     public static SelenideElement Offer3MinPerMonth = $(By.xpath("(*//div[contains(text(), '400')])[2]//span[contains(text(), 'минут')]"));
     public static SelenideElement Offer3NotIncludeSmartphone = $(By.xpath("(*//div[contains(text(), 'без смартфона')])[3]"));
