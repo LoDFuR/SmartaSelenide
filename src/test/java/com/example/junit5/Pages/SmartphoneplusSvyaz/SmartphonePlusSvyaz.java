@@ -92,7 +92,7 @@ public class SmartphonePlusSvyaz {
     // Включено в комплект
     public static SelenideElement SmartaOfferIncludeTitle = $(By.xpath("*//div[contains(text(), 'Включено в комплект')]"));
     public static SelenideElement SmartaOfferIncludeSmartphone = $(By.xpath("*//div[contains(text(), 'Смартфон Samsung Galaxy A06')]"));
-    public static SelenideElement SmartaOfferCBOXIncludeSmartpone = $(By.xpath("*//div[contains(text(), 'Смартфон Samsung Galaxy A06')]//img"));
+    public static SelenideElement SmartaOfferCBOXIncludeSmartphone = $(By.xpath("*//div[contains(text(), 'Смартфон Samsung Galaxy A06')]//img"));
     public static SelenideElement SmartaOfferIncludeInsurance = $(By.xpath("*//div[contains(text(), 'Страховка смартфона от повреждений')]"));
     public static SelenideElement SmartaOfferCBOXIncludeInsurance = $(By.xpath("*//div[contains(text(), 'Страховка смартфона от повреждений')]//img"));
 

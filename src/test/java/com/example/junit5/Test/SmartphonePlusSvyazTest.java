@@ -13,8 +13,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartphonePlusSvyazTest {
             public static void MaximizeWindow(){
@@ -175,11 +174,12 @@ public class SmartphonePlusSvyazTest {
     public void SmartaOfferPriceTest(){
         MaximizeWindow();
         String ExpectedPrice = "920 ₽ в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Price
         assertTrue(SmartphonePlusSvyaz.SmartaOfferPrice.is(Condition.visible),
                 "Price  is invisible");
         assertEquals(ExpectedPrice,
@@ -191,12 +191,12 @@ public class SmartphonePlusSvyazTest {
     public void SmartaOfferGbTest(){
         MaximizeWindow();
         String ExpectedGb = "35 гб в мес.";
-        //Gb
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Gb
         assertTrue(SmartphonePlusSvyaz.SmartaOfferGb.is(Condition.visible),
                 "Gb element is invisible");
         assertEquals(ExpectedGb,
@@ -208,6 +208,7 @@ public class SmartphonePlusSvyazTest {
     public void SmartaOfferMinTest(){
         MaximizeWindow();
         String ExpectedMin = "350 минут в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -225,6 +226,7 @@ public class SmartphonePlusSvyazTest {
         String ExpectedIncludesText = "Включено в комплект",
                 ExpectedSmartphone = "Смартфон Samsung Galaxy A06",
                 ExpectedInsurance = "Страховка смартфона от повреждений";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -248,8 +250,35 @@ public class SmartphonePlusSvyazTest {
                 SmartphonePlusSvyaz.SmartaOfferIncludeInsurance.getText(),
                 "InsuranceText is Different");
     }
-
-
+    @Test
+    public void SmartaOfferGreenTextTest(){
+        MaximizeWindow();
+        String ExpectedColor = "rgba(255, 255, 255, 1)";
+        //Scrolling to the Comparing Block
+        assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
+                "Compare title is disabled");
+        SmartphonePlusSvyaz.TitleCompare.scrollTo();
+        sleep(700);
+        assertEquals(ExpectedColor,
+                SmartphonePlusSvyaz.SmartaOfferInclude.getCssValue("color"),
+                "Color isn't green");
+    }
+    /*
+    // Disabled because of not comparing the source of the img
+    @Test
+    public void SmartaOfferCBOXTest(){
+        MaximizeWindow();
+        //Scrolling to the Comparing Block
+        assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
+                "Compare title is disabled");
+        SmartphonePlusSvyaz.TitleCompare.scrollTo();
+        sleep(700);
+        assertTrue(SmartphonePlusSvyaz.SmartaOfferCBOXIncludeSmartphone.isDisplayed(),
+                "No CBOX for the including Smartphone");
+        assertTrue(SmartphonePlusSvyaz.SmartaOfferCBOXIncludeInsurance.isDisplayed(),
+                "No CBOX for the including Insurance");
+    }
+     */
 
     // FirstOffer
     @Test
@@ -262,7 +291,6 @@ public class SmartphonePlusSvyazTest {
                 "Compare title is disabled");
     SmartphonePlusSvyaz.TitleCompare.scrollTo();
     sleep(700);
-    //Smarta
     assertTrue(SmartphonePlusSvyaz.Offer1Title.is(Condition.visible),
                 "Offer1 is invisible");
     assertEquals(ExpectedSmarta,
@@ -274,11 +302,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer1PriceTest(){
         MaximizeWindow();
         String ExpectedPrice = "800 ₽ в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Price
         assertTrue(SmartphonePlusSvyaz.Offer1Price.is(Condition.visible),
                 "Price  is invisible");
         assertEquals(ExpectedPrice,
@@ -290,12 +319,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer1GbTest(){
         MaximizeWindow();
         String ExpectedGb = "20 гб";
-        //Gb
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Gb
         assertTrue(SmartphonePlusSvyaz.Offer1Gb.is(Condition.visible),
                 "Gb element is invisible");
         assertEquals(ExpectedGb,
@@ -307,6 +336,7 @@ public class SmartphonePlusSvyazTest {
     public void Offer1MinTest(){
         MaximizeWindow();
         String ExpectedMin = "400 минут";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -323,6 +353,7 @@ public class SmartphonePlusSvyazTest {
         MaximizeWindow();
         String ExpectedSmartphone = "без смартфона",
                 ExpectedInsurance = "без защиты";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -345,13 +376,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer2NamingTest(){
         MaximizeWindow();
         String ExpectedSmarta = "Оператор 2";
-
         //Scrolling to the block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-        //Smarta
+
         assertTrue(SmartphonePlusSvyaz.Offer2Title.is(Condition.visible),
                 "Offer2 is invisible");
         assertEquals(ExpectedSmarta,
@@ -363,11 +393,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer2PriceTest(){
         MaximizeWindow();
         String ExpectedPrice = "780 ₽ в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Price
         assertTrue(SmartphonePlusSvyaz.Offer2Price.is(Condition.visible),
                 "Price  is invisible");
         assertEquals(ExpectedPrice,
@@ -379,12 +410,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer2GbTest(){
         MaximizeWindow();
         String ExpectedGb = "25 гб";
-        //Gb
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Gb
         assertTrue(SmartphonePlusSvyaz.Offer2Gb.is(Condition.visible),
                 "Gb element is invisible");
         assertEquals(ExpectedGb,
@@ -396,6 +427,7 @@ public class SmartphonePlusSvyazTest {
     public void Offer2MinTest(){
         MaximizeWindow();
         String ExpectedMin = "250 минут";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -412,6 +444,7 @@ public class SmartphonePlusSvyazTest {
         MaximizeWindow();
         String ExpectedSmartphone = "без смартфона",
                 ExpectedInsurance = "без защиты";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -435,13 +468,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer3NamingTest(){
         MaximizeWindow();
         String ExpectedSmarta = "Оператор 3";
-
         //Scrolling to the block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-        //Smarta
+
         assertTrue(SmartphonePlusSvyaz.Offer3Title.is(Condition.visible),
                 "Offer3 is invisible");
         assertEquals(ExpectedSmarta,
@@ -453,11 +485,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer3PriceTest(){
         MaximizeWindow();
         String ExpectedPrice = "750 ₽ в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Price
         assertTrue(SmartphonePlusSvyaz.Offer3Price.is(Condition.visible),
                 "Price  is invisible");
         assertEquals(ExpectedPrice,
@@ -469,12 +502,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer3GbTest(){
         MaximizeWindow();
         String ExpectedGb = "20 гб";
-        //Gb
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Gb
         assertTrue(SmartphonePlusSvyaz.Offer3Gb.is(Condition.visible),
                 "Gb element is invisible");
         assertEquals(ExpectedGb,
@@ -486,6 +519,7 @@ public class SmartphonePlusSvyazTest {
     public void Offer3MinTest(){
         MaximizeWindow();
         String ExpectedMin = "400 минут";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -502,6 +536,7 @@ public class SmartphonePlusSvyazTest {
         MaximizeWindow();
         String ExpectedSmartphone = "без смартфона",
                 ExpectedInsurance = "без защиты";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -524,13 +559,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer4NamingTest(){
         MaximizeWindow();
         String ExpectedSmarta = "Оператор 4";
-
         //Scrolling to the block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-        //Smarta
+
         assertTrue(SmartphonePlusSvyaz.Offer4Title.is(Condition.visible),
                 "Offer4 is invisible");
         assertEquals(ExpectedSmarta,
@@ -542,6 +576,7 @@ public class SmartphonePlusSvyazTest {
     public void Offer4PriceTest(){
         MaximizeWindow();
         String ExpectedPrice = "1050 ₽ в мес.";
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
@@ -558,12 +593,12 @@ public class SmartphonePlusSvyazTest {
     public void Offer4GbTest(){
         MaximizeWindow();
         String ExpectedGb = "35 гб";
-        //Gb
+        //Scrolling to the Comparing Block
         assertTrue(SmartphonePlusSvyaz.TitleCompare.is(Condition.enabled),
                 "Compare title is disabled");
         SmartphonePlusSvyaz.TitleCompare.scrollTo();
         sleep(700);
-
+        //Gb
         assertTrue(SmartphonePlusSvyaz.Offer4Gb.is(Condition.visible),
                 "Gb element is invisible");
         assertEquals(ExpectedGb,
@@ -632,6 +667,39 @@ public class SmartphonePlusSvyazTest {
                 ClickOptions.withTimeout(Duration.ofSeconds(8)));
     }
 
+    @Test
+    public void ChangingMinSumTest(){
+        MaximizeWindow();
+       // final int
+        assertTrue(SmartphonePlusSvyaz.Button.exists());
+        SmartphonePlusSvyaz.Button.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
+                Duration.ofSeconds(3));
+        sleep(2000);
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
+        int minSUM = Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText().replaceAll("\\D+",""));
+        assertEquals(5500, minSUM);
+
+        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
+            minSUM-=Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(0)
+                    .getText()
+                    .replaceAll("\\D+",""));
+            SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(0).click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+            if (minSUM > 0){
+                assertEquals(minSUM,
+                        Integer.parseInt(
+                                SmartphonePlusSvyaz.AccessoriesPrice.getText()
+                                .replaceAll("\\D+","")),
+                        "Incorrect Calculations of Accessory SUM");
+            }
+        }
+        assertFalse(SmartphonePlusSvyaz.TextAccessories.isDisplayed(),
+                "MIN SUM text is displayed");
+        assertFalse(SmartphonePlusSvyaz.AccessoriesPrice.isDisplayed(),
+                "MIN SUM Displayed!");
+    }
 
     @Test
     public void ApplicationSmartphonePlusSvyaz(){
