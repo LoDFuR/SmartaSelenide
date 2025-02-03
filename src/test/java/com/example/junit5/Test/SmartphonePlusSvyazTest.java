@@ -8,15 +8,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.currentFrameUrlStartingWith;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartphonePlusSvyazTest {
-            public static void MaximizeWindow(){
+    public static void MaximizeWindow(){
         open(SmartphonePlusSvyaz.main);
         getWebDriver().manage().window().maximize();
     }
@@ -33,7 +36,6 @@ public class SmartphonePlusSvyazTest {
         assertTrue(SmartphonePlusSvyaz.Button.exists());
         SmartphonePlusSvyaz.Button.click(ClickOptions.withTimeout(Duration.ofSeconds(4)));
         SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible, Duration.ofSeconds(3));
-        //sleep(3000);
         assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed(), "Scrolling to the Accessories Failed");
     }
 
@@ -130,6 +132,318 @@ public class SmartphonePlusSvyazTest {
                 "Subtitle is different!");
     }
 
+
+    //Characteristics
+
+    @Test
+    public void CharacteristicTitleTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCharacteristic.scrollTo();
+        sleep(500);
+        String expectedText = "Основные характеристики";
+        assertEquals(expectedText,
+                SmartphonePlusSvyaz.TitleCharacteristic.getText(),
+                "Title Characteristics is different!");
+    }
+
+    @Test
+    public void CharacteristicsImgMountainTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCharacteristic.scrollTo();
+        sleep(800);
+        String expectedSubTitle = "Безграничный 6,7 экран для больших возможностей";
+        assertEquals(expectedSubTitle,
+                SmartphonePlusSvyaz.SubtitleCharacteristic1.getText(),
+                "Img Display text is different");
+    }
+
+    @Test
+    public void CharacteristicsImgFestivalTest(){
+        String  expectedSubTitle2 = "Основная камера с высоким разрешением 50 МП";
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCharacteristic.scrollTo();
+        sleep(800);
+        assertEquals(expectedSubTitle2,
+                SmartphonePlusSvyaz.SubtitleCharacteristic2.getText(),
+                "Camera Img text is different");
+    }
+
+    @Test
+    public void CharacteristicsImgBatteryTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCharacteristic.scrollTo();
+        sleep(1000);
+        String expectedSubTitle = "Мощный аккумулятор и супербыстрая зарядка";
+        assertEquals(expectedSubTitle,
+                SmartphonePlusSvyaz.SubtitleCharacteristic3.getText(),
+                "Battery camera text is different");
+    }
+
+    @Test
+    public void CharacteristicsBlockImgTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleCharacteristic.exists(),
+                "Characteristics title doesn't exist");
+        SmartphonePlusSvyaz.TitleCharacteristic.scrollTo();
+        sleep(800);
+        assertTrue(SmartphonePlusSvyaz.TitleCharacteristic.isDisplayed(),
+                "Title is not displayed");
+        assertTrue(SmartphonePlusSvyaz.ImgCharacteristic1.isDisplayed(),
+                "Img is not displayed");
+        assertTrue(SmartphonePlusSvyaz.ImgCharacteristic2.isDisplayed(),
+                "Img is not displayed");
+        assertTrue(SmartphonePlusSvyaz.ImgCharacteristic3.isDisplayed(),
+                "Img is not displayed");
+    }
+
+    @Test
+    public void DesignBlockTitleTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleDesign.scrollTo();
+        sleep(900);
+        String expectedTitle = "Стильный изящный дизайн. Черный цвет. Две SIM-карты";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleDesign.getText(),
+                "Design title text is different");
+    }
+
+
+    @Test
+    public void DesignBlockSubTitleTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleDesign.scrollTo();
+        sleep(900);
+        String expectedSubtitle = "Galaxy A06 получил повышенный уровень комфорта благодаря уменьшенному с 8,8 мм до 8,0 мм корпусу. А классический цвет смартфона подчеркнет вашу индивидуальность. Galaxy A06 доступен в черном цвете.";
+        assertEquals(expectedSubtitle,
+                SmartphonePlusSvyaz.SubtitleDesign.getText());
+    }
+    @Test
+    public void DesignBlockImgTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleDesign.scrollTo();
+        sleep(1000);
+        assertTrue(SmartphonePlusSvyaz.ImgDesign1.isDisplayed(),
+                "Img of the back of smartphone isn't displayed");
+        assertTrue(SmartphonePlusSvyaz.ImgDesign2.isDisplayed(),
+                "Img microSD isn't displayed");
+    }
+
+   //Camera
+    @Test
+    public void CameraBlockTitleTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCamera.scrollTo();
+        sleep(1000);
+        String expectedTitle = "Основная камера с высоким разрешением 50 МП";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleCamera.getText(),
+                "Title camera is different");
+    }
+
+
+    @Test
+    public void CameraBlockSubTitleTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCamera.scrollTo();
+        sleep(1000);
+        String expectedTitle = "Откройте для себя возможности камеры Galaxy A06 с разрешением 50 МП." +
+                " Создавайте фотографии потрясающего качества с помощью камеры с датчиком глубины 2 МП — " +
+                "она придаст изображению дополнительный объем. А фронтальная камера 8 МП обеспечит безупречную" +
+                " четкость ваших снимков.";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.SubtitleCamera.getText(),
+                "Subtitle is different");
+    }
+
+    @Test
+    public void CameraBlockImgTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleCamera.scrollTo();
+        sleep(1000);
+        assertTrue(SmartphonePlusSvyaz.ImgCamera.isDisplayed(),
+                "Img is not displayed");
+    }
+
+    //safety block
+    @Test
+    public void SafetyBlockTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleSafety.scrollTo();
+        sleep(900);
+        String expectedTitle = "Безопасный доступ в одно касание благодаря сканеру отпечатков пальцев";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleSafety.getText(),
+                "Title with touch scanner is different");
+    }
+    @Test
+    public void SafetyBlockSubTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubtitleSafety.scrollTo();
+        sleep(900);
+        String expectedSubTitle = "Вы также можете активировать функцию двойного нажатия" +
+                " для включения камеры или других часто используемых приложений.";
+        assertEquals(expectedSubTitle,
+                SmartphonePlusSvyaz.SubtitleSafety.getText(),
+                "SubTitle with touch scanner is different");
+    }
+    @Test
+    public void SafetyBlockDisplayingImgTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.ImgSafety.scrollTo();
+        sleep(900);
+        assertTrue(SmartphonePlusSvyaz.ImgSafety.isDisplayed(),
+                "Img touch scanner is not displayed");
+    }
+
+
+    //Fast Smooth
+    @Test
+    public void FastSmoothBlockTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleFastSmooth.scrollTo();
+        sleep(900);
+        String expectedTitle = "Быстрая и плавная работа нескольких приложений одновременно";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleFastSmooth.getText(),
+                "Title with perfomance scanner is different");
+    }
+    @Test
+    public void FastSmoothBlockSubTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubtitleFastSmooth.scrollTo();
+        sleep(900);
+        String expectedSubTitle = "Процессор MediaTek G85 и вместительная внутренняя" +
+                " память для комфортной игры, просмотра видео и социальных сетей.";
+        assertEquals(expectedSubTitle,
+                SmartphonePlusSvyaz.SubtitleFastSmooth.getText(),
+                "SubTitle with perfomance scanner is different");
+    }
+    @Test
+    public void FastSmoothBlockDisplayingImgTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.ImgFastSmooth.scrollTo();
+        sleep(900);
+        assertTrue(SmartphonePlusSvyaz.ImgFastSmooth.isDisplayed(),
+                "Img with games is not displayed");
+    }
+
+
+    // Get Smasung Galaxy A06 with complect
+    @Test
+    public void ConnectionBlockTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.TitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "Получите Samsung Galaxy A06 в комплекте с мобильной связью" +
+                " и защитой экрана за 920 ₽ в месяц!";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleConnection.getText(),
+                "Title Complect is different");
+    }
+
+    @Test
+    public void ConnectionBlockSubTitleTest() {
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "SIM-карта Smarta работает на базе оператора “t2“" +
+                " – это означает покрытие по всей России.\n" +
+                "Посмотрите зону покрытия.";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.SubTitleConnection.getText(),
+                "SubTitle Complect is different");
+    }
+
+    @Test
+    public void ConnectionBlockGbElementTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "35";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.GbTitleConnection.getText().replaceAll("\\D", ""),
+                "Gb element has different value");
+    }
+    @Test
+    public void ConnectionBlockGbTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "интернета в месяц без ограничения скорости";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.GbSubtitleConnection.getText(),
+                "Gb element has different description");
+    }
+    @Test
+    public void ConnectionBlockMinutesElementTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "350";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.MinTitleConnection.getText().replaceAll("\\D", ""),
+                "Minutes element has different value");
+    }
+    @Test
+    public void ConnectionBlockMinutesTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(900);
+        String expectedTitle = "звонков в месяц по всей России на номера любых операторов";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.MinSubtitleConnection.getText(),
+                "Minutes element has different description");
+    }
+    @Test
+    public void ConnectionBlock4GElementTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(1000);
+        String expectedTitle = "4G";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.MobDataTitleConnection.getText(),
+                "Mobile connection type element has different value");
+    }
+    @Test
+    public void ConnectionBlock4GTextTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(1000);
+        String expectedTitle = "скоростной интернет на всей территории покрытия";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.MobDataSubtitleConnection.getText(),
+                "Mobile connection type element has different description");
+    }
+
+    @Test
+    public void ConnectionBlockButtonTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(500);
+        SmartphonePlusSvyaz.ButtonConnection.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible, Duration.ofSeconds(3));
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed(), "Scrolling to the Accessories Failed");
+    }
+    @Test
+    public void ConnectionBlockOpentLinkTest(){
+        MaximizeWindow();
+        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        sleep(500);
+        SmartphonePlusSvyaz.OperatorZoneLink.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        sleep(1000);
+        String expectedURL = "https://msk.t2.ru/coverage?ysclid=m3zybm5x49450605433";
+       for (String wind : getWebDriver().getWindowHandles()) {
+           getWebDriver().switchTo().window(wind);
+           if (getWebDriver().getCurrentUrl().equals(expectedURL)) return;
+       }
+       assertEquals(expectedURL,
+               getWebDriver().getCurrentUrl(),
+               "Url t2 map is different!");
+    }
+
+    //Compare block
     @Test
     public void CompareBlockDisplayingTest(){
         MaximizeWindow();

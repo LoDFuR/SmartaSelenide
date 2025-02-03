@@ -52,7 +52,7 @@ public class SmartphonePlusSvyaz {
     // 2 блока в горизонтальной сетке: Безопасный доступ + Быстрая и плавная работа
     // Безопасный доступ
     public static SelenideElement TitleSafety = $(By.xpath("//div[contains(text(),'Безопасный доступ')]"));
-    public static SelenideElement SubtitleSafty = $(By.xpath("//div[contains(text(),'Вы также можете активировать функцию')]"));
+    public static SelenideElement SubtitleSafety = $(By.xpath("//div[contains(text(),'Вы также можете активировать функцию')]"));
     public static SelenideElement ImgSafety = $(By.xpath("(*//img[@alt = 'samsung-galaxy-a06'])[8]"));
     // Быстрая и плавная работа
     public static SelenideElement TitleFastSmooth = $(By.xpath("//div[contains(text(),'Быстрая и плавная работа')]"));
