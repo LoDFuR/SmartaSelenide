@@ -156,7 +156,7 @@ public class SmartphonePlusSvyaz {
     public static SelenideElement SubTitleToday = $(By.xpath("*//div[contains(text(), 'Оформляйте договор')]"));
     // !!!!!!Указано конкретное кол-во месяцев: 36!!!!!!!
     public static SelenideElement TitleLater = $(By.xpath("*//div[contains(text(), '36 месяцев')]"));
-    public static SelenideElement SubTitleLater = $(By.xpath("*//div[@class='samsung-galaxy-a06_text___5KU4'][contains(text(), 'Пользуйтесь смартфоном и мобильной связью')]"));
+    public static SelenideElement SubTitleLater = $(By.xpath("*//div[contains(text(), 'Пользуйтесь смартфоном и мобильной связью')]"));
     public static SelenideElement TitleAtTheEnd = $(By.xpath("(*//div[contains(text(), 'В конце срока')])[2]"));
     public static SelenideElement SubTitleAtTheEnd = $(By.xpath("(*//div[contains(text(), 'Обменяйте смартфон на новый или оставьте себе')])"));
     public static SelenideElement TextOptions = $(By.xpath("*//div[contains(text(), 'Можно ли закрыть договор досрочно')]"));

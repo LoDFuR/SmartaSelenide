@@ -70,7 +70,8 @@ public class SmartphonePlusSvyazTest {
     @Test
     public void SubTitleTest(){
         MaximizeWindow();
-        String ExpectedSubTitle = "Отличный современный смартфон с двумя SIM-картами и мобильная связь с 35 Гб интернета в месяц!";
+        String ExpectedSubTitle = "Отличный современный смартфон с двумя SIM-картами и " +
+                "мобильная связь с 35 Гб интернета в месяц!";
         SmartphonePlusSvyaz.Subtitle.shouldBe(Condition.visible, Duration.ofSeconds(5));
         assertEquals(ExpectedSubTitle,
                 SmartphonePlusSvyaz.Subtitle.getText(),
@@ -122,7 +123,9 @@ public class SmartphonePlusSvyazTest {
     @Test
     public void LegendarySeriesSubTitleTest(){
         MaximizeWindow();
-        String ExpectedSubTitle = "Расширьте свои возможности на большом экране Galaxy A06 диагональю 6,7 дюйма. Просматривать контент удобно благодаря плавной прокрутке с частотой 60 Гц и дисплею с U-вырезом и TFT-матрицей.";
+        String ExpectedSubTitle = "Расширьте свои возможности на большом экране Galaxy A06 диагональю 6,7 дюйма. " +
+                "Просматривать контент удобно благодаря плавной прокрутке с частотой 60 Гц и дисплею с U-вырезом " +
+                "и TFT-матрицей.";
         SmartphonePlusSvyaz.TitleLegendary.scrollTo();
         sleep(700);
         assertTrue(SmartphonePlusSvyaz.SubtitleLegendary.isDisplayed(),
@@ -213,7 +216,10 @@ public class SmartphonePlusSvyazTest {
         MaximizeWindow();
         SmartphonePlusSvyaz.TitleDesign.scrollTo();
         sleep(900);
-        String expectedSubtitle = "Galaxy A06 получил повышенный уровень комфорта благодаря уменьшенному с 8,8 мм до 8,0 мм корпусу. А классический цвет смартфона подчеркнет вашу индивидуальность. Galaxy A06 доступен в черном цвете.";
+        String expectedSubtitle = "Galaxy A06 получил повышенный уровень " +
+                "комфорта благодаря уменьшенному с 8,8 мм до 8,0 мм корпусу. " +
+                "А классический цвет смартфона подчеркнет вашу индивидуальность. " +
+                "Galaxy A06 доступен в черном цвете.";
         assertEquals(expectedSubtitle,
                 SmartphonePlusSvyaz.SubtitleDesign.getText());
     }
@@ -958,7 +964,176 @@ public class SmartphonePlusSvyazTest {
                 "InsuranceText is Different");
     }
 
+//Protected
+    @Test
+    public void ProtectedBlockTitleTextTest(){
+        MaximizeWindow();
 
+        assertTrue(SmartphonePlusSvyaz.TitleProtected.exists(),
+                "Title Protected isn't exist");
+        SmartphonePlusSvyaz.TitleProtected.scrollTo();
+        sleep(900);
+        String expectedTitle =  "Ваш смартфон защищен";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleProtected.getText(),
+                "Title is different");
+
+    }
+    @Test
+    public void ProtectedBlockSubTitleTextTest(){
+        MaximizeWindow();
+
+        assertTrue(SmartphonePlusSvyaz.SubTitleProtected.exists(),
+                "SubTitle Protected isn't exist");
+        SmartphonePlusSvyaz.TitleProtected.scrollTo();
+        sleep(900);
+        String expectedSubTitle =  "Если вы вдруг разобьете экран, " +
+                "мы бесплатно его заменим 1 раз в год";
+        assertEquals(expectedSubTitle,
+                SmartphonePlusSvyaz.SubTitleProtected.getText(),
+                "SubTitle is different");
+
+    }
+    @Test
+    public void ProtectedBlockTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TextProtected.exists(),
+                "Text in Protected block doesn't exist");
+        SmartphonePlusSvyaz.TitleProtected.scrollTo();
+        sleep(900);
+        String expectedText =  "Эта возможность уже включена в платеж и действует\n" +
+                "в течение всего срока вашего контракта (3 года).\n" +
+                "Итого за 920 ₽ в месяц вы получаете: классный смартфон\n" +
+                "+ отличный тариф + страховка от повреждений";
+        assertEquals(expectedText,
+                SmartphonePlusSvyaz.TextProtected.getText(),
+                "Text is different");
+    }
+
+    @Test
+    public void ProtectedBlockValueInTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TextProtected.exists(),
+                "Text in Protected block doessn't exist");
+        SmartphonePlusSvyaz.TitleProtected.scrollTo();
+        sleep(900);
+        String expectedValue =  "920";
+        assertTrue(SmartphonePlusSvyaz.TextProtected.getText().contains(expectedValue),
+                "Value in text is different");
+    }
+
+    @Test
+    public void ProtectedBlockImgDisplayingTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TextProtected.exists(),
+                "Text in Protected block doesn't exist");
+        SmartphonePlusSvyaz.TitleProtected.scrollTo();
+        sleep(900);
+        assertTrue(SmartphonePlusSvyaz.ImgProtected.exists(),
+                "Img isn't displayed");
+    }
+
+    //At the end
+    @Test
+    public void AtTheEndBlockTitleTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedTitle = "В конце срока договора обменяйте смартфон на новый или оставьте себе";
+        assertEquals(expectedTitle,
+                SmartphonePlusSvyaz.TitleOptions.getText(),
+                "Title is different");
+    }
+    @Test
+    public void AtTheEndBlockTodayTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedText = "Сегодня\n" +
+                "Оформляйте договор онлайн, мы доставим смартфон и SIM-карту";
+        String actualText = SmartphonePlusSvyaz.TitleToday.getText() + "\n" +
+                SmartphonePlusSvyaz.SubTitleToday.getText();
+        assertEquals(expectedText,
+                actualText,
+                "Text today is different");
+    }
+    @Test
+    public void AtTheEndBlock36MonthTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedText = "36 месяцев\n" +
+                "Пользуйтесь смартфоном и мобильной связью за 920 ₽ в месяц";
+        String actualText = SmartphonePlusSvyaz.TitleLater.getText() + "\n" +
+                SmartphonePlusSvyaz.SubTitleLater.getText();
+        assertEquals(expectedText,
+                actualText,
+                "Text 36 month is different");
+    }
+    @Test
+    public void AtTheEndBlock36MonthValueTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedValue = "920";
+        assertTrue(SmartphonePlusSvyaz.SubTitleLater.getText().contains(expectedValue),
+                "Value is different");
+    }
+    @Test
+    public void AtTheEndBlockAtTheEndOptionTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedValue = "";
+        String expectedText = "В конце срока\n" +
+                "Обменяйте смартфон на новый или оставьте себе. " +
+                "Связью можно продолжить пользоваться за 470 ₽ в месяц";
+        String actualText = SmartphonePlusSvyaz.TitleAtTheEnd.getText() + "\n" +
+                SmartphonePlusSvyaz.SubTitleAtTheEnd.getText();
+        assertEquals(expectedText,
+                actualText,
+                "Text 36 month is different");
+    }
+    @Test
+    public void AtTheEndBlockAtTheEndOptionValueTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedValue = "470";
+        assertEquals(expectedValue,
+                SmartphonePlusSvyaz.SubTitleAtTheEnd.getText().replaceAll("\\D", ""),
+                "Value is different");
+    }
+
+    @Test
+    public void AtTheEndBlockTextTest(){
+        MaximizeWindow();
+        assertTrue(SmartphonePlusSvyaz.TitleOptions.exists(),
+                "Title at the end block doesn't exist");
+        SmartphonePlusSvyaz.TitleOptions.scrollTo();
+        sleep(900);
+        String expectedText = "Можно ли закрыть договор досрочно? Конечно! " +
+                "В любой момент можете внести все платежи по договору вперед. " +
+                "Так вы выкупите смартфон досрочно. А тарифом на связь можете продолжать " +
+                "пользоваться без платежей, пока не пройдет 3 года с момента оформления контракта.";
+        assertEquals(expectedText,
+                SmartphonePlusSvyaz.TextOptions.getText(),
+                "Options text is different");
+    }
+
+    // Accessories Block
     @Test
     public void openWhichNumberPopUpTest(){
         MaximizeWindow();
