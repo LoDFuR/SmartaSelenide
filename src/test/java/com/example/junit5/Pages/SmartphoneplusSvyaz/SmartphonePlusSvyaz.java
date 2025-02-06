@@ -12,7 +12,8 @@ import static com.codeborne.selenide.Selenide.$$;
     public static SelenideElement ElementName = $(By.xpath("XPATH"));
 */
 public class SmartphonePlusSvyaz {
-    public static String main = "https://dev.smarta.lc/samsung-galaxy-a06-svyas777";
+    public static String main = "https://dev.smarta.lc/samsung-galaxy-a06-svyas";
+    public static String prod = "https://smartastore.ru/samsung-galaxy-a06-svyas";
     // Блок с изображением смартфона с подписью "Можно перейти со своим номером"
 
     public static SelenideElement Title = $(By.xpath("*//h1[contains(text(),'Samsung Galaxy A06 + связь на 3 года')]"));

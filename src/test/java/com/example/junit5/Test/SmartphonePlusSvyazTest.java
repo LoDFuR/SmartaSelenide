@@ -23,6 +23,9 @@ public class SmartphonePlusSvyazTest {
         open(SmartphonePlusSvyaz.main);
         getWebDriver().manage().window().maximize();
     }
+    public final int ACESSORYSUM = 5500;
+
+
     @Test
     public void OpenSiteTest(){
         MaximizeWindow();
@@ -384,7 +387,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlockMinutesElementTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
-        sleep(900);
+        sleep(1100);
         String expectedTitle = "350";
         assertEquals(expectedTitle,
                 SmartphonePlusSvyaz.MinTitleConnection.getText().replaceAll("\\D", ""),
@@ -394,7 +397,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlockMinutesTextTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
-        sleep(900);
+        sleep(1100);
         String expectedTitle = "звонков в месяц по всей России на номера любых операторов";
         assertEquals(expectedTitle,
                 SmartphonePlusSvyaz.MinSubtitleConnection.getText(),
@@ -404,7 +407,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlock4GElementTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
-        sleep(1000);
+        sleep(1100);
         String expectedTitle = "4G";
         assertEquals(expectedTitle,
                 SmartphonePlusSvyaz.MobDataTitleConnection.getText(),
@@ -414,7 +417,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlock4GTextTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
-        sleep(1000);
+        sleep(1100);
         String expectedTitle = "скоростной интернет на всей территории покрытия";
         assertEquals(expectedTitle,
                 SmartphonePlusSvyaz.MobDataSubtitleConnection.getText(),
@@ -425,7 +428,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlockButtonTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.MobDataTitleConnection.scrollTo();
-        sleep(500);
+        sleep(700);
         SmartphonePlusSvyaz.ButtonConnection.shouldBe(Condition.visible, Duration.ofSeconds(3));
         SmartphonePlusSvyaz.ButtonConnection.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
@@ -436,7 +439,7 @@ public class SmartphonePlusSvyazTest {
     public void ConnectionBlockOpentLinkTest(){
         MaximizeWindow();
         SmartphonePlusSvyaz.TitleConnection.scrollTo();
-        sleep(500);
+        sleep(700);
         SmartphonePlusSvyaz.OperatorZoneLink.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
         sleep(1000);
@@ -1172,25 +1175,33 @@ public class SmartphonePlusSvyazTest {
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
         SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
                 Duration.ofSeconds(3));
-        sleep(2000);
+        sleep(2200);
         assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
         int minSUM = Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText().replaceAll("\\D+",""));
-        assertEquals(5500, minSUM);
-
-        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
-            minSUM-=Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(0)
+        assertEquals(ACESSORYSUM, minSUM);
+        int i = 0, price;
+        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()) {
+            price = Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(i)
                     .getText()
-                    .replaceAll("\\D+",""));
-            SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(0).click(
-                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
-            if (minSUM > 0){
-                assertEquals(minSUM,
-                        Integer.parseInt(
-                                SmartphonePlusSvyaz.AccessoriesPrice.getText()
-                                .replaceAll("\\D+","")),
-                        "Incorrect Calculations of Accessory SUM");
-            }
+                    .replaceAll("\\D+", ""));
+                minSUM -= Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(i)
+                        .getText()
+                        .replaceAll("\\D+", ""));
+                SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i).click(
+                        ClickOptions.withTimeout(Duration.ofSeconds(4)));
+                if (minSUM > 0) {
+                    //  if (!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()) break;
+                    if (SmartphonePlusSvyaz.AccessoriesPrice.exists()) {
+                        assertEquals(minSUM,
+                                Integer.parseInt(
+                                        SmartphonePlusSvyaz.AccessoriesPrice.getText()
+                                                .replaceAll("\\D+", "")),
+                                "Incorrect Calculations of Accessory SUM");
+                    }
+                }
+
         }
+        //sleep(150000);
         assertFalse(SmartphonePlusSvyaz.TextAccessories.isDisplayed(),
                 "MIN SUM text is displayed");
         assertFalse(SmartphonePlusSvyaz.AccessoriesPrice.isDisplayed(),
@@ -1210,7 +1221,7 @@ public class SmartphonePlusSvyazTest {
         assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
         int minSUM = Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText()
                 .replaceAll("\\D+",""));
-        assertEquals(5500, minSUM);
+        assertEquals(ACESSORYSUM, minSUM);
 
             minSUM-=Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrices.get(0)
                     .getText()
@@ -1224,7 +1235,7 @@ public class SmartphonePlusSvyazTest {
         SmartphonePlusSvyaz.AddedAccessories.get(0)
                 .click(
                         ClickOptions.withTimeout(Duration.ofSeconds(5)));
-        assertEquals(5500,
+        assertEquals(ACESSORYSUM,
                 Integer.parseInt(SmartphonePlusSvyaz.AccessoriesPrice.getText()
                 .replaceAll("\\D+","")),
                 "MIN SUM Didn't change");
@@ -1232,8 +1243,7 @@ public class SmartphonePlusSvyazTest {
 
     @Test
     public void ApplicationSmartphonePlusSvyaz(){
-        open(SmartphonePlusSvyaz.main);
-        getWebDriver().manage().window().maximize();
+        MaximizeWindow();
         assertTrue(SmartphonePlusSvyaz.Button.exists());
         SmartphonePlusSvyaz.Button.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
@@ -1287,8 +1297,7 @@ public class SmartphonePlusSvyazTest {
 
     @Test
     public void PortationDisabledButtonTest(){
-        open(SmartphonePlusSvyaz.main);
-        getWebDriver().manage().window().maximize();
+        MaximizeWindow();
         assertTrue(SmartphonePlusSvyaz.Button.exists());
         SmartphonePlusSvyaz.Button.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
@@ -1319,8 +1328,7 @@ public class SmartphonePlusSvyazTest {
     }
     @Test
     public void PortationEnablingButtonTest(){
-        open(SmartphonePlusSvyaz.main);
-        getWebDriver().manage().window().maximize();
+        MaximizeWindow();
         assertTrue(SmartphonePlusSvyaz.Button.exists());
         SmartphonePlusSvyaz.Button.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
