@@ -424,7 +424,7 @@ public class SmartphonePlusSvyazTest {
     @Test
     public void ConnectionBlockButtonTest(){
         MaximizeWindow();
-        SmartphonePlusSvyaz.ButtonConnection.scrollTo();
+        SmartphonePlusSvyaz.MobDataTitleConnection.scrollTo();
         sleep(500);
         SmartphonePlusSvyaz.ButtonConnection.shouldBe(Condition.visible, Duration.ofSeconds(3));
         SmartphonePlusSvyaz.ButtonConnection.click(
