@@ -1271,6 +1271,7 @@ public class SmartphonePlusSvyazTest {
                 Duration.ofSeconds(5)));
         PupUpChooseYourNumber.ButtonContinue.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        sleep(900);
         PupUpChooseYourNumber.ButtonToZayavka.shouldBe(Condition.enabled,
                 Duration.ofSeconds(7));
         PupUpChooseYourNumber.ButtonToZayavka.click(
