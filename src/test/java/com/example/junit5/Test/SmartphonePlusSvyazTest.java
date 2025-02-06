@@ -1248,7 +1248,8 @@ public class SmartphonePlusSvyazTest {
         // getting accessories
         while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
             clickingButton = SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i);
-            clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
+            clickingButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(5)));
             // Надпись Добавлено изменяется после клика
             sleep(500);
         }
@@ -1256,7 +1257,8 @@ public class SmartphonePlusSvyazTest {
             SmartphonePlusSvyaz.AcceptCookiesButton.click(
                     ClickOptions.withTimeout(Duration.ofSeconds(4)));
         }
-        SmartphonePlusSvyaz.ButtonAccessories.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        SmartphonePlusSvyaz.ButtonAccessories.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(5)));
         sleep(5000);
         // offer
         ElementsCollection numb = PupUpChooseYourNumber.NumbersButtons;
@@ -1283,8 +1285,111 @@ public class SmartphonePlusSvyazTest {
     }
 
 
+    @Test
+    public void PortationDisabledButtonTest(){
+        open(SmartphonePlusSvyaz.main);
+        getWebDriver().manage().window().maximize();
+        assertTrue(SmartphonePlusSvyaz.Button.exists());
+        SmartphonePlusSvyaz.Button.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
+                Duration.ofSeconds(3));
+        sleep(2000);
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
+        int i = 0;
+        SelenideElement clickingButton;
+        SelenideElement clickingNumber;
+        // getting accessories
+        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
+            clickingButton = SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i);
+            clickingButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(5)));
+            // Надпись Добавлено изменяется после клика
+            sleep(500);
+        }
+        if (SmartphonePlusSvyaz.AcceptCookiesButton.exists()) {
+            SmartphonePlusSvyaz.AcceptCookiesButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        }
+        SmartphonePlusSvyaz.ButtonAccessories.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        sleep(500);
+        assertFalse(PupUpChooseYourNumber.ButtonGetSMSCode.isEnabled(),
+                "Button Get SMS is enabled or not existing");
+    }
+    @Test
+    public void PortationEnablingButtonTest(){
+        open(SmartphonePlusSvyaz.main);
+        getWebDriver().manage().window().maximize();
+        assertTrue(SmartphonePlusSvyaz.Button.exists());
+        SmartphonePlusSvyaz.Button.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
+                Duration.ofSeconds(3));
+        sleep(2000);
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
+        int i = 0;
+        SelenideElement clickingButton;
+        SelenideElement clickingNumber;
+        // getting accessories
+        sleep(500);
+        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
+            clickingButton = SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i);
+            clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
+            // Надпись Добавлено изменяется после клика
+            sleep(500);
+        }
+        if (SmartphonePlusSvyaz.AcceptCookiesButton.exists()) {
+            SmartphonePlusSvyaz.AcceptCookiesButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        }
+        SmartphonePlusSvyaz.ButtonAccessories.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        sleep(500);
+        PupUpChooseYourNumber.InputNumber.setValue("79807506890");
+        assertTrue(PupUpChooseYourNumber.ButtonGetSMSCode.isEnabled(),
+                "Button Get SMS is disabled");
+    }
+    /*
+    // Disabled cause of random state for the same parametrs
+    @Test
+    public void PortationRandomTest(){
+        open(SmartphonePlusSvyaz.main);
+        getWebDriver().manage().window().maximize();
+        assertTrue(SmartphonePlusSvyaz.Button.exists());
+        SmartphonePlusSvyaz.Button.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(3)));
+        SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible,
+                Duration.ofSeconds(3));
+        sleep(2000);
+        assertTrue(SmartphonePlusSvyaz.TitleAccessories.isDisplayed());
+        int i = 0;
+        SelenideElement clickingButton;
+        SelenideElement clickingNumber;
+        // getting accessories
+        sleep(500);
+        while(!SmartphonePlusSvyaz.ButtonAccessories.isEnabled()){
+            clickingButton = SmartphonePlusSvyaz.AccessoriesButtonsAdd.get(i);
+            clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
+            // Надпись Добавлено изменяется после клика
+            sleep(500);
+        }
+        if (SmartphonePlusSvyaz.AcceptCookiesButton.exists()) {
+            SmartphonePlusSvyaz.AcceptCookiesButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        }
+        SmartphonePlusSvyaz.ButtonAccessories.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(5)));
+        sleep(500);
+        PupUpChooseYourNumber.InputNumber.setValue("79807506890");
+        assertTrue(PupUpChooseYourNumber.ButtonGetSMSCode.isEnabled(),
+                "Button Get SMS is disabled");
+        PupUpChooseYourNumber.ButtonGetSMSCode.click(
+                ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        sleep(10000000);
+    }
 
-
+     */
 
 
 }
