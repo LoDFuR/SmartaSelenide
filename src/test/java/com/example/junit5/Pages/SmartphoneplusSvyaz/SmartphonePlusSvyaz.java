@@ -180,7 +180,7 @@ public class SmartphonePlusSvyaz {
    public static SelenideElement nextAccessoryButton = $(By.xpath("*//div[@class=\"swiper-button-next\"]"));
    public static ElementsCollection AddedAccessoryLetters = $$(By.xpath("*//span[@class=\"selectedTitle\"]"));
    public static ElementsCollection RemoveAccessoryButtons = $$(By.xpath("*//button[contains(text(), 'Убрать')]"));
-
+   public static SelenideElement AcceptCookiesButton = $(By.xpath("*//button[contains(text(), 'Принять')]"));
     ////div[contains(text(),'в комплекте с мобильной связью')]
     //public static SelenideElement ElementName = $(By.xpath("XPATH"));
     //(*//img[@alt = 'samsung-galaxy-a06'])[1]

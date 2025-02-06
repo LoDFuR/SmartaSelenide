@@ -424,8 +424,9 @@ public class SmartphonePlusSvyazTest {
     @Test
     public void ConnectionBlockButtonTest(){
         MaximizeWindow();
-        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        SmartphonePlusSvyaz.ButtonConnection.scrollTo();
         sleep(500);
+        SmartphonePlusSvyaz.ButtonConnection.shouldBe(Condition.visible, Duration.ofSeconds(3));
         SmartphonePlusSvyaz.ButtonConnection.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
         SmartphonePlusSvyaz.TitleAccessories.shouldBe(Condition.visible, Duration.ofSeconds(3));
@@ -434,7 +435,7 @@ public class SmartphonePlusSvyazTest {
     @Test
     public void ConnectionBlockOpentLinkTest(){
         MaximizeWindow();
-        SmartphonePlusSvyaz.SubTitleConnection.scrollTo();
+        SmartphonePlusSvyaz.TitleConnection.scrollTo();
         sleep(500);
         SmartphonePlusSvyaz.OperatorZoneLink.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(3)));
@@ -447,6 +448,7 @@ public class SmartphonePlusSvyazTest {
        assertEquals(expectedURL,
                getWebDriver().getCurrentUrl(),
                "Url t2 map is different!");
+       closeWindow();
     }
 
     //Compare block
@@ -1152,6 +1154,11 @@ public class SmartphonePlusSvyazTest {
                     ClickOptions.withTimeout(Duration.ofSeconds(5)));
             sleep(500);
         }
+        //sleep(900);
+        if (SmartphonePlusSvyaz.AcceptCookiesButton.exists()) {
+            SmartphonePlusSvyaz.AcceptCookiesButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
+        }
         SmartphonePlusSvyaz.ButtonAccessories.click(
                 ClickOptions.withTimeout(Duration.ofSeconds(8)));
     }
@@ -1244,6 +1251,10 @@ public class SmartphonePlusSvyazTest {
             clickingButton.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
             // Надпись Добавлено изменяется после клика
             sleep(500);
+        }
+        if (SmartphonePlusSvyaz.AcceptCookiesButton.exists()) {
+            SmartphonePlusSvyaz.AcceptCookiesButton.click(
+                    ClickOptions.withTimeout(Duration.ofSeconds(4)));
         }
         SmartphonePlusSvyaz.ButtonAccessories.click(ClickOptions.withTimeout(Duration.ofSeconds(5)));
         sleep(5000);
